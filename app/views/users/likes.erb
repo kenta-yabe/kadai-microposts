@@ -7,9 +7,7 @@
 </h3>
       </div>
       <div class="card-body">
-        <img class="rounded img-fluid" src="
-<%= gravatar_url(@user, { size: 500 }) %>
-" alt="">
+        <img class="rounded img-fluid" src="<%= gravatar_url(@user, { size: 500 }) %>" alt="">
       </div>
     </div>
     
@@ -18,13 +16,9 @@
   </aside>
   <div class="col-sm-8">
     <ul class="nav nav-tabs nav-justified mb-3">
-      <li class="nav-item"><a href="
-<%= user_path(@user) %>
-" class="nav-link 
-<%= 'active' if current_page?(user_path(@user)) %>
-">Microposts  <span class="badge badge-secondary">
-<%= @count_microposts %>
-</span></a></li>
+      <li class="nav-item"><a href="<%= user_path(@user) %>" class="nav-link <%= 'active' if current_page?(user_path(@user)) %>">
+        Microposts  <span class="badge badge-secondary"><%= @count_microposts %></span></a>
+        </li>
       <li class="nav-item"><a href="
 <%= followings_user_path(@user) %>
 " class="nav-link 
@@ -39,16 +33,16 @@
 ">Followers  <span class="badge badge-secondary">
 <%= @count_followers %>
 </span></a></li>
-<li class="nav-item"><a href="
+
+    <li class="nav-item"><a href="
 <%= fav_posts_user_path(@user) %>
 " class="nav-link 
 <%= 'active' if current_page?(fav_posts_user_path(@user)) %>
 ">お気に入り一覧  <span class="badge badge-secondary">
 <%= @count_fav_posts %>
 </span></a></li>
-    </ul>
-    
-<%= render 'users', users: @followings %>
 
+<%= render 'microposts/microposts', microposts: @fav_posts %>
+    </ul>
   </div>
 </div>
