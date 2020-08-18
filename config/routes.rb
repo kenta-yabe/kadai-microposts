@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   
   resources :users, only: [:index, :show, :new, :create] do
     member do
-      get :fav_posts
+      get :likes
     end
   end
 

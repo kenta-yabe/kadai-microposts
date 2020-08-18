@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-    before_action :require_user_logged_in, only: [:index, :show, :followings, :followers, :fav_posts]
+    before_action :require_user_logged_in, only: [:index, :show, :followings, :followers, :likes]
   
   def index
     @users = User.order(id: :desc).page(params[:page]).per(25)
@@ -39,7 +39,7 @@ class UsersController < ApplicationController
     counts(@user)
   end
 
-  def fav_posts
+  def likes
     @user = User.find(params[:id])
     @fav_posts = @user.fav_posts.page(params[:page])
     counts(@user)
